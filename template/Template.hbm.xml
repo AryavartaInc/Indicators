@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- http://www.tutorialspoint.com/hibernate/hibernate_mapping_types.htm -->
+<hibernate-mapping package="com.fin.persistence">
+<class name="$" entity-name="$" table="$">
+ <id name="id" type="long" column="ID">
+	<generator class="native"/>
+ </id>
+ <property name="TradeDate" type="timestamp" column="TradeDate"/>
+ <property name="OpenPrice" type="double" column="OpenPrice"/>
+ <property name="HighPrice" type="double" column="HighPrice"/>
+ <property name="LowPrice" type="double" column="LowPrice"/>
+ <property name="LastTradedPrice" type="double" column="LastTradedPrice"/>
+ <property name="ClosePrice" type="double" column="ClosePrice"/>
+ <property name="TotalTradedQuantity" type="integer" column="TotalTradedQuantity"/>
+ <property name="Turnover" type="double" column="Turnover"/>
+ <property name="RSI" type="double" column="RSI"/>
+ <property name="ADL" type="integer" column="ADL"/>
+ <property name="SMA20Day" type="double" column="SMA20Day"/>
+ <property name="SMA50Day" type="double" column="SMA50Day"/>
+ <property name="SMA100Day" type="double" column="SMA100Day"/>
+ <property name="SMA200Day" type="double" column="SMA200Day"/>
+ <property name="CommodityChannelIndex" type="double" column="CommodityChannelIndex"/>
+ <property name="DIPlus" type="double" column="DIPlus"/>
+ <property name="DIMinus" type="double" column="DIMinus"/>
+ <property name="ADX" type="double" column="ADX"/>
+ <property name="UpperBollgerBand" type="double" column="UpperBollgerBand"/>
+ <property name="LowerBollgerBand" type="double" column="LowerBollgerBand"/>
+ <property name="EMA3Day" type="double" column="EMA3Day"/>
+ <property name="EMA15Day" type="double" column="EMA15Day"/>
+ <property name="EMA5Day" type="double" column="EMA5Day"/>
+ <property name="EMA20Day" type="double" column="EMA20Day"/>
+ <property name="EMA12Day" type="double" column="EMA12Day"/>
+ <property name="EMA9Day" type="double" column="EMA9Day"/>
+ <property name="EMA26Day" type="double" column="EMA26Day"/>
+ <property name="EMATrend" type="double" column="EMATrend"/>
+ <property name="EMARecommendation" type="double" column="EMARecommendation"/>
+ </class>
+</hibernate-mapping>
+
