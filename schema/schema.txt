@@ -1,0 +1,1 @@
+This folder contains template for database schema generation for various Data Sources like "Yahoo Finanace", "Google Finanace" and "NSE India"
