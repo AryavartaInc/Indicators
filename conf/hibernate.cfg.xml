@@ -1,0 +1,263 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+<session-factory>
+<!-- Database connection settings -->
+<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+<property name="connection.url">jdbc:mysql://localhost/stockquote</property>
+<property name="connection.username">root</property>
+<property name="connection.password">root123</property>
+<!--By default, Hibernate works in normal POJO mode. You can set a default entity representation
+mode for a particular SessionFactory using the default_entity_mode configuration option -->
+<!-- Hibernate Dynamic Model values: dynamic-map, dom4j, pojo -->
+<property name="default_entity_mode">dynamic-map</property>
+<!-- JDBC connection pool (use the built-in) -->
+<property name="connection.pool_size">5</property>
+<!-- SQL dialect -->
+<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+<!-- Enable Hibernate's automatic session context management -->
+<property name="current_session_context_class">thread</property>
+<!-- Disable the second-level cache -->
+<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+<!-- Echo all executed SQL to stdout -->
+<property name="show_sql">true</property>
+<!-- Drop and re-create the database schema on startup -->
+<property name="hbm2ddl.auto">update</property>
+
+<property name="transaction.auto_close_session">true</property>
+
+<!-- mapping resource="com/fin/persistence/3IINFOTECH.hbm.xml"/ -->
+<mapping resource="com/fin/persistence/ABAN.hbm.xml"/>
+<mapping resource="com/fin/persistence/ABB.hbm.xml"/>
+<mapping resource="com/fin/persistence/ABGSHIP.hbm.xml"/>
+
+<mapping resource="com/fin/persistence/ABIRLANUVO.hbm.xml"/>
+<mapping resource="com/fin/persistence/ACC.hbm.xml"/>
+<mapping resource="com/fin/persistence/ADANIENT.hbm.xml"/>
+
+<mapping resource="com/fin/persistence/ADANIPOWER.hbm.xml"/>
+<mapping resource="com/fin/persistence/ALBK.hbm.xml"/>
+<mapping resource="com/fin/persistence/ALOKTEXT.hbm.xml"/>
+<mapping resource="com/fin/persistence/AMBUJACEM.hbm.xml"/>
+<mapping resource="com/fin/persistence/ANDHRABANK.hbm.xml"/>
+<mapping resource="com/fin/persistence/APIL.hbm.xml"/>
+<mapping resource="com/fin/persistence/APOLLOTYRE.hbm.xml"/>
+
+<mapping resource="com/fin/persistence/ARVIND.hbm.xml"/>
+<mapping resource="com/fin/persistence/ASHOKLEY.hbm.xml"/>
+<mapping resource="com/fin/persistence/ASIANPAINT.hbm.xml"/>
+<mapping resource="com/fin/persistence/AUROPHARMA.hbm.xml"/>
+<mapping resource="com/fin/persistence/AXISBANK.hbm.xml"/>
+
+<mapping resource="com/fin/persistence/BAJAJHIND.hbm.xml"/>
+<mapping resource="com/fin/persistence/BAJAJHLDNG.hbm.xml"/>
+<mapping resource="com/fin/persistence/BALRAMCHIN.hbm.xml"/>
+<mapping resource="com/fin/persistence/BANKBARODA.hbm.xml"/>
+<mapping resource="com/fin/persistence/BANKINDIA.hbm.xml"/>
+<mapping resource="com/fin/persistence/BATAINDIA.hbm.xml"/>
+<mapping resource="com/fin/persistence/BEL.hbm.xml"/>
+<mapping resource="com/fin/persistence/BEML.hbm.xml"/>
+<mapping resource="com/fin/persistence/BFUTILITIE.hbm.xml"/>
+<mapping resource="com/fin/persistence/BGRENERGY.hbm.xml"/>
+<mapping resource="com/fin/persistence/BHARATFORG.hbm.xml"/>
+<mapping resource="com/fin/persistence/BHARTIARTL.hbm.xml"/>
+<mapping resource="com/fin/persistence/BHEL.hbm.xml"/>
+<mapping resource="com/fin/persistence/BHUSANSTL.hbm.xml"/>
+<mapping resource="com/fin/persistence/BIOCON.hbm.xml"/>
+<mapping resource="com/fin/persistence/BOMDYEING.hbm.xml"/>
+<mapping resource="com/fin/persistence/BOSCHLTD.hbm.xml"/>
+<mapping resource="com/fin/persistence/BPCL.hbm.xml"/>
+<mapping resource="com/fin/persistence/BRFL.hbm.xml"/>
+<mapping resource="com/fin/persistence/CAIRN.hbm.xml"/>
+<mapping resource="com/fin/persistence/CANBK.hbm.xml"/>
+<mapping resource="com/fin/persistence/CENTRALBK.hbm.xml"/>
+<mapping resource="com/fin/persistence/CENTURYTEX.hbm.xml"/>
+<mapping resource="com/fin/persistence/CESC.hbm.xml"/>
+<mapping resource="com/fin/persistence/CHAMBLFERT.hbm.xml"/>
+<mapping resource="com/fin/persistence/CIPLA.hbm.xml"/>
+<mapping resource="com/fin/persistence/COALINDIA.hbm.xml"/>
+<mapping resource="com/fin/persistence/COLPAL.hbm.xml"/>
+<mapping resource="com/fin/persistence/COREEDUTEC.hbm.xml"/>
+<mapping resource="com/fin/persistence/CROMPGREAV.hbm.xml"/>
+<mapping resource="com/fin/persistence/CUMMINSIND.hbm.xml"/>
+<mapping resource="com/fin/persistence/DABUR.hbm.xml"/>
+<mapping resource="com/fin/persistence/DCB.hbm.xml"/>
+<mapping resource="com/fin/persistence/DCHL.hbm.xml"/>
+<mapping resource="com/fin/persistence/DELTACORP.hbm.xml"/>
+<mapping resource="com/fin/persistence/DENABANK.hbm.xml"/>
+<mapping resource="com/fin/persistence/DHANBANK.hbm.xml"/>
+<mapping resource="com/fin/persistence/DISHTV.hbm.xml"/>
+<mapping resource="com/fin/persistence/DIVISLAB.hbm.xml"/>
+<mapping resource="com/fin/persistence/DLF.hbm.xml"/>
+<mapping resource="com/fin/persistence/DRREDDY.hbm.xml"/>
+<mapping resource="com/fin/persistence/EDUCOMP.hbm.xml"/>
+<mapping resource="com/fin/persistence/EKC.hbm.xml"/>
+<mapping resource="com/fin/persistence/ESCORTS.hbm.xml"/>
+<mapping resource="com/fin/persistence/ESSAROIL.hbm.xml"/>
+<mapping resource="com/fin/persistence/EXIDEIND.hbm.xml"/>
+<mapping resource="com/fin/persistence/FEDERALBNK.hbm.xml"/>
+<mapping resource="com/fin/persistence/FINANTECH.hbm.xml"/>
+<mapping resource="com/fin/persistence/FORTIS.hbm.xml"/>
+<mapping resource="com/fin/persistence/FSL.hbm.xml"/>
+<mapping resource="com/fin/persistence/GAIL.hbm.xml"/>
+<mapping resource="com/fin/persistence/GESHIP.hbm.xml"/>
+<mapping resource="com/fin/persistence/GITANJALI.hbm.xml"/>
+<mapping resource="com/fin/persistence/GLAXO.hbm.xml"/>
+<mapping resource="com/fin/persistence/GMDCLTD.hbm.xml"/>
+<mapping resource="com/fin/persistence/GMRINFRA.hbm.xml"/>
+<mapping resource="com/fin/persistence/GODREJIND.hbm.xml"/>
+<mapping resource="com/fin/persistence/GRASIM.hbm.xml"/>
+<mapping resource="com/fin/persistence/GSPL.hbm.xml"/>
+<mapping resource="com/fin/persistence/GTOFFSHORE.hbm.xml"/>
+<mapping resource="com/fin/persistence/GUJFLUORO.hbm.xml"/>
+<mapping resource="com/fin/persistence/GVKPIL.hbm.xml"/>
+<mapping resource="com/fin/persistence/HAVELLS.hbm.xml"/>
+<mapping resource="com/fin/persistence/HCC.hbm.xml"/>
+<mapping resource="com/fin/persistence/HCLTECH.hbm.xml"/>
+<mapping resource="com/fin/persistence/HDFC.hbm.xml"/>
+<mapping resource="com/fin/persistence/HDFCBANK.hbm.xml"/>
+<mapping resource="com/fin/persistence/HDIL.hbm.xml"/>
+<mapping resource="com/fin/persistence/HEROMOTOCO.hbm.xml"/>
+<mapping resource="com/fin/persistence/HEXAWARE.hbm.xml"/>
+<mapping resource="com/fin/persistence/HINDALCO.hbm.xml"/>
+<mapping resource="com/fin/persistence/HINDOILEXP.hbm.xml"/>
+<mapping resource="com/fin/persistence/HINDPETRO.hbm.xml"/>
+<mapping resource="com/fin/persistence/HINDUNILVR.hbm.xml"/>
+<mapping resource="com/fin/persistence/HINDZINC.hbm.xml"/>
+<mapping resource="com/fin/persistence/HOTELEELA.hbm.xml"/>
+<mapping resource="com/fin/persistence/IBREALEST.hbm.xml"/>
+<mapping resource="com/fin/persistence/ICICIBANK.hbm.xml"/>
+<mapping resource="com/fin/persistence/IDBI.hbm.xml"/>
+<mapping resource="com/fin/persistence/IDEA.hbm.xml"/>
+<mapping resource="com/fin/persistence/IDFC.hbm.xml"/>
+<mapping resource="com/fin/persistence/IFCI.hbm.xml"/>
+<mapping resource="com/fin/persistence/IGL.hbm.xml"/>
+<mapping resource="com/fin/persistence/INDHOTEL.hbm.xml"/>
+<mapping resource="com/fin/persistence/INDIACEM.hbm.xml"/>
+<mapping resource="com/fin/persistence/INDIAINFO.hbm.xml"/>
+<mapping resource="com/fin/persistence/INDIANB.hbm.xml"/>
+<mapping resource="com/fin/persistence/INDUSINDBK.hbm.xml"/>
+<mapping resource="com/fin/persistence/INFY.hbm.xml"/>
+<mapping resource="com/fin/persistence/IOB.hbm.xml"/>
+<mapping resource="com/fin/persistence/IOC.hbm.xml"/>
+<mapping resource="com/fin/persistence/IRB.hbm.xml"/>
+<mapping resource="com/fin/persistence/ITC.hbm.xml"/>
+<mapping resource="com/fin/persistence/IVRCLINFRA.hbm.xml"/>
+<mapping resource="com/fin/persistence/JETAIRWAYS.hbm.xml"/>
+<mapping resource="com/fin/persistence/JINDALSAW.hbm.xml"/>
+<mapping resource="com/fin/persistence/JINDALSTEL.hbm.xml"/>
+<mapping resource="com/fin/persistence/JINDALSWHL.hbm.xml"/>
+<mapping resource="com/fin/persistence/JISLJALEQS.hbm.xml"/>
+<mapping resource="com/fin/persistence/JPASSOCIAT.hbm.xml"/>
+<mapping resource="com/fin/persistence/JPPOWER.hbm.xml"/>
+<mapping resource="com/fin/persistence/JSWENERGY.hbm.xml"/>
+<mapping resource="com/fin/persistence/JSWISPAT.hbm.xml"/>
+<mapping resource="com/fin/persistence/JSWSTEEL.hbm.xml"/>
+<mapping resource="com/fin/persistence/JUBLFOOD.hbm.xml"/>
+<mapping resource="com/fin/persistence/KFA.hbm.xml"/>
+<mapping resource="com/fin/persistence/KOTAKBANK.hbm.xml"/>
+<mapping resource="com/fin/persistence/KSOILS.hbm.xml"/>
+<mapping resource="com/fin/persistence/KTKBANK.hbm.xml"/>
+<mapping resource="com/fin/persistence/LICHSGFIN.hbm.xml"/>
+<mapping resource="com/fin/persistence/LITL.hbm.xml"/>
+<mapping resource="com/fin/persistence/LT.hbm.xml"/>
+<mapping resource="com/fin/persistence/LUPIN.hbm.xml"/>
+
+<mapping resource="com/fin/persistence/MARUTI.hbm.xml"/>
+<mapping resource="com/fin/persistence/MAX.hbm.xml"/>
+<mapping resource="com/fin/persistence/MCLEODRUSS.hbm.xml"/>
+<mapping resource="com/fin/persistence/MERCATOR.hbm.xml"/>
+<mapping resource="com/fin/persistence/MPHASIS.hbm.xml"/>
+<mapping resource="com/fin/persistence/MRF.hbm.xml"/>
+<mapping resource="com/fin/persistence/MRPL.hbm.xml"/>
+<mapping resource="com/fin/persistence/MTNL.hbm.xml"/>
+<mapping resource="com/fin/persistence/MUNDRAPORT.hbm.xml"/>
+<mapping resource="com/fin/persistence/NATIONALUM.hbm.xml"/>
+<mapping resource="com/fin/persistence/NCC.hbm.xml"/>
+<mapping resource="com/fin/persistence/NEYVELILIG.hbm.xml"/>
+<mapping resource="com/fin/persistence/NHPC.hbm.xml"/>
+<mapping resource="com/fin/persistence/NMDC.hbm.xml"/>
+<mapping resource="com/fin/persistence/NTPC.hbm.xml"/>
+<mapping resource="com/fin/persistence/OFSS.hbm.xml"/>
+<mapping resource="com/fin/persistence/OIL.hbm.xml"/>
+<mapping resource="com/fin/persistence/ONGC.hbm.xml"/>
+<mapping resource="com/fin/persistence/ONMOBILE.hbm.xml"/>
+<mapping resource="com/fin/persistence/OPTOCIRCUI.hbm.xml"/>
+<mapping resource="com/fin/persistence/ORCHIDCHEM.hbm.xml"/>
+<mapping resource="com/fin/persistence/ORIENTBANK.hbm.xml"/>
+<mapping resource="com/fin/persistence/PANTALOONR.hbm.xml"/>
+<mapping resource="com/fin/persistence/PATELENG.hbm.xml"/>
+<mapping resource="com/fin/persistence/PATNI.hbm.xml"/>
+<mapping resource="com/fin/persistence/PETRONET.hbm.xml"/>
+<mapping resource="com/fin/persistence/PFC.hbm.xml"/>
+<mapping resource="com/fin/persistence/PIRHEALTH.hbm.xml"/>
+<mapping resource="com/fin/persistence/PNB.hbm.xml"/>
+<mapping resource="com/fin/persistence/POLARIS.hbm.xml"/>
+<mapping resource="com/fin/persistence/POWERGRID.hbm.xml"/>
+<mapping resource="com/fin/persistence/PRAJIND.hbm.xml"/>
+<mapping resource="com/fin/persistence/PTC.hbm.xml"/>
+<mapping resource="com/fin/persistence/PUNJLLOYD.hbm.xml"/>
+<mapping resource="com/fin/persistence/RANBAXY.hbm.xml"/>
+<mapping resource="com/fin/persistence/RAYMOND.hbm.xml"/>
+<mapping resource="com/fin/persistence/RCOM.hbm.xml"/>
+<mapping resource="com/fin/persistence/RECLTD.hbm.xml"/>
+<mapping resource="com/fin/persistence/RELCAPITAL.hbm.xml"/>
+<mapping resource="com/fin/persistence/RELIANCE.hbm.xml"/>
+<mapping resource="com/fin/persistence/RELINFRA.hbm.xml"/>
+<mapping resource="com/fin/persistence/RENUKA.hbm.xml"/>
+<mapping resource="com/fin/persistence/ROLTA.hbm.xml"/>
+<mapping resource="com/fin/persistence/RPOWER.hbm.xml"/>
+<mapping resource="com/fin/persistence/RUCHISOYA.hbm.xml"/>
+<mapping resource="com/fin/persistence/SAIL.hbm.xml"/>
+<mapping resource="com/fin/persistence/SBIN.hbm.xml"/>
+<mapping resource="com/fin/persistence/SCI.hbm.xml"/>
+<mapping resource="com/fin/persistence/SESAGOA.hbm.xml"/>
+<mapping resource="com/fin/persistence/SIEMENS.hbm.xml"/>
+<mapping resource="com/fin/persistence/SINTEX.hbm.xml"/>
+<mapping resource="com/fin/persistence/SKUMARSYNF.hbm.xml"/>
+<mapping resource="com/fin/persistence/SOBHA.hbm.xml"/>
+<mapping resource="com/fin/persistence/SOUTHBANK.hbm.xml"/>
+<mapping resource="com/fin/persistence/SREINFRA.hbm.xml"/>
+<mapping resource="com/fin/persistence/SRTRANSFIN.hbm.xml"/>
+<mapping resource="com/fin/persistence/STER.hbm.xml"/>
+<mapping resource="com/fin/persistence/STRTECH.hbm.xml"/>
+<mapping resource="com/fin/persistence/SUNPHARMA.hbm.xml"/>
+<mapping resource="com/fin/persistence/SUNTV.hbm.xml"/>
+<mapping resource="com/fin/persistence/SUZLON.hbm.xml"/>
+<mapping resource="com/fin/persistence/SYNDIBANK.hbm.xml"/>
+<mapping resource="com/fin/persistence/TATACHEM.hbm.xml"/>
+<mapping resource="com/fin/persistence/TATACOMM.hbm.xml"/>
+<mapping resource="com/fin/persistence/TATAGLOBAL.hbm.xml"/>
+<mapping resource="com/fin/persistence/TATAMOTORS.hbm.xml"/>
+<mapping resource="com/fin/persistence/TATAMTRDVR.hbm.xml"/>
+<mapping resource="com/fin/persistence/TATAPOWER.hbm.xml"/>
+<mapping resource="com/fin/persistence/TATASTEEL.hbm.xml"/>
+<mapping resource="com/fin/persistence/TCS.hbm.xml"/>
+<mapping resource="com/fin/persistence/TECHM.hbm.xml"/>
+<mapping resource="com/fin/persistence/TEXINFRA.hbm.xml"/>
+<mapping resource="com/fin/persistence/TITAN.hbm.xml"/>
+<mapping resource="com/fin/persistence/TRIVENI.hbm.xml"/>
+<mapping resource="com/fin/persistence/TTKPRESTIG.hbm.xml"/>
+<mapping resource="com/fin/persistence/TTML.hbm.xml"/>
+<mapping resource="com/fin/persistence/TULIP.hbm.xml"/>
+<mapping resource="com/fin/persistence/TVSMOTOR.hbm.xml"/>
+<mapping resource="com/fin/persistence/UCOBANK.hbm.xml"/>
+<mapping resource="com/fin/persistence/ULTRACEMCO.hbm.xml"/>
+<mapping resource="com/fin/persistence/UNIONBANK.hbm.xml"/>
+<mapping resource="com/fin/persistence/UNIPHOS.hbm.xml"/>
+<mapping resource="com/fin/persistence/UNITECH.hbm.xml"/>
+<mapping resource="com/fin/persistence/VIDEOIND.hbm.xml"/>
+<mapping resource="com/fin/persistence/VIJAYABANK.hbm.xml"/>
+<mapping resource="com/fin/persistence/VIPIND.hbm.xml"/>
+<mapping resource="com/fin/persistence/VOLTAS.hbm.xml"/>
+<mapping resource="com/fin/persistence/WELCORP.hbm.xml"/>
+<mapping resource="com/fin/persistence/WIPRO.hbm.xml"/>
+<mapping resource="com/fin/persistence/YESBANK.hbm.xml"/>
+<mapping resource="com/fin/persistence/ZEEL.hbm.xml"/>
+
+<!-- mapping resource="com/fin/persistence/BAJAJ-AUTO.hbm.xml"/-->
+<!--mapping resource="com/fin/persistence/MCDOWELL-N.hbm.xml"/-->
+
+</session-factory>
+</hibernate-configuration>
