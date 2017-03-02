@@ -17,6 +17,10 @@ import java.util.ArrayList;
 import java.util.Properties;
 import java.util.StringTokenizer;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
+
 /**
  * @author Manoj Kumar Tiwari
  * @version 1.0.0.0
@@ -27,7 +31,7 @@ public class Util {
 
     private String[] m_strStockCodeValue;
 
-    private String m_strDataSource = Constants.STR_STOCK_CODE_DATA_SOURCE_YAHOO;
+    private String m_strDataSource = "";
 
     private ArrayList<Integer> m_nEMADurationValue;
 
@@ -150,6 +154,8 @@ public class Util {
     private String m_strYahooFinanceCSQURL = null;
 
     private String m_strYahooFinanceHistoricalSQURL = null;
+    
+    ApplicationContext m_objSpringAppContext = null;
 
     // Private constructor prevents instantiation from other classes
     private Util() {
@@ -160,7 +166,7 @@ public class Util {
         m_strEMADurationValue = new ArrayList<String>();
         m_strWorkingDirectory = System
                 .getProperty(Constants.STR_CURRENT_WORKING_DIR);
-        m_strFileSeparator = System.getProperty(Constants.STR_FILE_SEPARATOR);
+        m_strFileSeparator = System.getProperty(Constants.STR_FILE_SEPARATOR);        
     }
 
     /**
@@ -172,6 +178,11 @@ public class Util {
         // Later, when I implement Factory pattern, below code needs to be
         // re-written.
         public static final Util objUtil = new Util();
+        
+        // https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html#clone()
+        public Object clone() throws CloneNotSupportedException {
+        	   throw new CloneNotSupportedException();
+        }
     }
 
     public static Util getInstance() {
@@ -1893,5 +1904,12 @@ public class Util {
         this.m_strYahooFinanceHistoricalSQURL = m_strYahooFinanceHistoricalSQURL;
     }
 
+    public ApplicationContext getSpringFXApplicationContext() {
+    	return m_objSpringAppContext;
+    }
+
+    public void setSpringFXApplicationContext(ApplicationContext objSpringAppContext) {
+    	m_objSpringAppContext = objSpringAppContext;
+    }
 
 }

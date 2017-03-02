@@ -81,8 +81,8 @@ public abstract class DataSource {
                 .equalsIgnoreCase(Constants.STR_STOCK_CODE_DATA_SOURCE_NSEINDIA) == true) {
             SingletonHolder.m_objDataSource = new DSNSEIndia();
         } else {
-            System.out
-                    .println("Specified data source in ema.ini having name 'STOCK_CODE_DATA_SOURCE' does not specify valid value.");
+            System.out.println(String.format(Constants.STR_MISSING_DATA_SOURCE_SETTINGS, 
+            		Constants.STR_STOCK_CODE_DATA_SOURCE_KEY_NAME));
             return null;
         }
         return SingletonHolder.m_objDataSource;

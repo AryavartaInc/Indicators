@@ -8,7 +8,7 @@ import java.math.BigDecimal;
  * @email manoj dot k dot tiwari at live dot com
  */
 
-public class Constants {
+public interface Constants {
     public static final String STR_MSG_CURRENT_WORKING_DIR = "Current working directory is: %s";
 
     public static final String STR_DOCUMENT_AUTHOR_NAME = "Developed by: MANOJ KUMAR TIWARI";
@@ -42,6 +42,9 @@ public class Constants {
     // http://www.nseindia.com/content/equities/scripvol/datafiles/11-07-2014-TO-10-07-2015RELIANCEALLN.csv
     //public static final String STR_NSE_INDIA_URL = "http://www.nseindia.com/content/equities/scripvol/datafiles/%s-TO-%s%sALLN.csv";
 
+    // https://www.nseindia.com/live_market/dynaContent/live_watch/get_quote/GetQuote.jsp?symbol=SBIN
+    // http://www.nseindia.com/live_market/dynaContent/live_watch/get_quote/getHistoricalData.jsp?symbol=%s&series=EQ&fromDate=undefined&toDate=undefined&datePeriod=12months&hiddDwnld=true
+    
     // http://www.nseindia.com/live_market/dynaContent/live_watch/get_quote/getHistoricalData.jsp?symbol=RELIANCE&series=EQ&fromDate=undefined&toDate=undefined&datePeriod=3months&hiddDwnld=true
     public static final String STR_NSE_INDIA_URL = "http://www.nseindia.com/live_market/dynaContent/live_watch/get_quote/getHistoricalData.jsp?symbol=%s&series=EQ&fromDate=undefined&toDate=undefined&datePeriod=12months&hiddDwnld=true";
     //public static final String STR_NSE_INDIA_URL = "http://www.nseindia.com/live_market/dynaContent/live_watch/get_quote/getHistoricalData.jsp?symbol=%s&fromDate=%s&toDate=%s&datePeriod=unselected&hiddDwnld=true";
@@ -356,4 +359,9 @@ public class Constants {
     public static final String STR_ILLEGAL_INPUT_FOR_ROC_CALC = "Duration for ROC calculation should be greater than zero. Please check the ema.ini file for possible error. A possible reason could be the value of 'ROC_DATA_DURATION'.";
 
     public static final String STR_ILLEGAL_INPUT_FOR_NUMBER_OF_STOCK_ARCHIVER_THREAD = "Number of thread for stock quote archiving should be greater than zero. Please check the ema.ini file for possible error. A possible reason could be the value of 'NUMBER_OF_STOCK_ARCHIVER_THREAD'.";
+    
+    String STR_FILE_SYSTEM_XML_APPLICATION_CONTEXT = "%ssrc%smain%sjava%scom%sfin%stechnical%sBeans.xml";
+    
+    String STR_MISSING_DATA_SOURCE_SETTINGS = "Specified data source in ema.ini having name '%s' does not specify valid value.";
+    
 }
