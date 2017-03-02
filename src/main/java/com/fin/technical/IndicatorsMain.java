@@ -69,8 +69,7 @@ public class IndicatorsMain {
         String strFileSeparator = System.getProperty(Constants.STR_FILE_SEPARATOR);
         StringBuffer strBufPath = m_objUtil.getParentOfWorkingDir();
         String strFIleSystemXMLAppCtx = String.format(Constants.STR_FILE_SYSTEM_XML_APPLICATION_CONTEXT, 
-        		strFileSeparator, strFileSeparator, strFileSeparator, strFileSeparator, 
-        		strFileSeparator, strFileSeparator, strFileSeparator);
+        		strFileSeparator, strFileSeparator);
         strBufPath.append(strFIleSystemXMLAppCtx);
         m_objSpringAppContext = new FileSystemXmlApplicationContext(strBufPath.toString());
         m_objUtil.setSpringFXApplicationContext(m_objSpringAppContext);
