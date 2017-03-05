@@ -28,12 +28,15 @@ import javax.activation.*;
 
 import org.springframework.context.ApplicationContext;
 
+import com.sun.mail.smtp.SMTPTransport;
+
 /**
  * @author 
  * @version 1.0.0.0
  * @email 
  */
 //cacerts from 
+// https://java.net/projects/javamail/pages/Home#Samples
 
 // https://www.geotrust.com/resources/root-certificates/index.html
 
@@ -81,8 +84,8 @@ public class TransportReport {
     
 	private static String m_strSMTPHostName = "smtp.gmail.com";
     private static int m_nSMTPHostPort = 465;
-    private static String m_strFrom = "the.greatest.magadh@gmail.com";
-    private static String m_strSenderPasscode = "919810346433";
+    private static String m_strFrom = "";
+    private static String m_strSenderPasscode = "";
     private Properties m_objSMTPProperties = null;
     private ApplicationContext m_objSpringAppCtx = null;
     private Util m_objUtil = null;
@@ -220,11 +223,12 @@ public class TransportReport {
         m_objSMTPProperties.put("mail.smtp.host", m_strSMTPHostName);        
         m_objSMTPProperties.put("mail.smtp.port", String.valueOf(m_nSMTPHostPort));
         m_objSMTPProperties.put("mail.smtp.auth", "true");    
-        m_objSMTPProperties.put("mail.smtp.starttls.enable", "true"); //enable STARTTLS    
+        // m_objSMTPProperties.put("mail.smtp.starttls.enable", "true"); //enable STARTTLS    
         // m_objSMTPProperties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");           
-        m_objSMTPProperties.put("mail.smtp.socketFactory.fallback", "false");   
-        m_objSMTPProperties.setProperty("mail.smtp.quitwait", "false"); 
+        // m_objSMTPProperties.put("mail.smtp.socketFactory.fallback", "false");   
+        // m_objSMTPProperties.setProperty("mail.smtp.quitwait", "false"); 
         //create Authenticator object to pass in Session.getInstance argument
+        /*
         final String strFromAddr = m_strFrom;
         final String strPassword = m_strSenderPasscode;
   		Authenticator objAuthenticator = new Authenticator() {
@@ -235,15 +239,18 @@ public class TransportReport {
   		};
         // Get objSession
         Session objSession = Session.getDefaultInstance(m_objSMTPProperties, objAuthenticator);
+        */
+        Session objSession = Session.getDefaultInstance(m_objSMTPProperties);
         objSession.setDebug(m_objUtil.getDebugSMTPSession());
-        // Transport objTransport = objSession.getTransport("smtp");
+        SMTPTransport objTransport = (SMTPTransport)objSession.getTransport("smtp");
+        objTransport.connect(m_strSMTPHostName, m_nSMTPHostPort, m_strFrom, m_strSenderPasscode);
         // Define message
         MimeMessage message = new MimeMessage(objSession);
         message.addHeader("Content-type", "text/HTML; charset=UTF-8");
         message.addHeader("format", "flowed");
         message.addHeader("Content-Transfer-Encoding", "8bit");
         message.setFrom(new InternetAddress(m_strFrom));
-        message.setReplyTo(InternetAddress.parse(strFromAddr, false));
+        message.setReplyTo(InternetAddress.parse(m_strFrom, false));
         String[] strRecipients = m_objUtil.getRecipientEmailAddress();
         if (strRecipients != null && strRecipients.length > 1) {
             for (int nIdx = 0; nIdx < strRecipients.length; nIdx++) {
@@ -269,14 +276,12 @@ public class TransportReport {
             strBufMessageBody.append(strCRLF).append(strIndiaVIX);
         }
         messageBodyPart.setText(strBufMessageBody.toString());
-
         Multipart objMultipart = new MimeMultipart();
         objMultipart.addBodyPart(messageBodyPart);
         
         // Part two is attachment
-        // Attach EMA Cross-over report
-        // objTransport.connect(strSMTPHostName, m_nSMTPHostPort, strFrom, strPasscode);
-
+        // Attach EMA Cross-over report        
+        /*
         if (m_objUtil.getGenMasterEMAReportValue() == 1) {
             try {
                 String strFileAttachment = m_objReportWriter.getReportFileNameForEMACrossover();
@@ -376,6 +381,7 @@ public class TransportReport {
                 excep.printStackTrace(System.out);
             }
         }
+        */
         // Put parts in message
         message.setContent(objMultipart);
         message.setSentDate(new Date());
