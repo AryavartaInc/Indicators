@@ -97,9 +97,15 @@ public class Util {
 
     private static String m_strStockQuotePath = null;
 
-    private static String m_strUserEmailAddress = null;
+    private static boolean m_bDebugSMTPSession = false;
+    
+    private static String m_strSMTPHostName = null;
 
-    private static String m_strUserEmailPasscode = null;
+    private static int m_nSMTPHostPort = 0;
+    
+    private static String m_strSMTPSenderEmailAddress = null;
+    
+    private static String m_strSMTPSenderEmailPasscode = null;
 
     private static String m_strUserEmailOAuthToken = null;
 
@@ -404,20 +410,43 @@ public class Util {
         m_strReportFileType = strReportFileType;
     }
 
-    public String getUserEmailAddress() {
-        return m_strUserEmailAddress;
+    public boolean getDebugSMTPSession() {
+    	return m_bDebugSMTPSession;
+    }
+    
+    public void setDebugSMTPSession(boolean bDebugSMTPSession) {
+    	m_bDebugSMTPSession = bDebugSMTPSession;
+    }
+    
+    public String getSMTPHostName() {
+    	return m_strSMTPHostName;
+    }
+    
+    public void setSMTPHostName(String strSMTPHostName) {
+    	m_strSMTPHostName = strSMTPHostName;
     }
 
-    public void setUserEmailAddress(String strUserEmailAddress) {
-        m_strUserEmailAddress = strUserEmailAddress;
+    public int getSMTPHostPort() {
+    	return m_nSMTPHostPort;
+    }
+    
+    public void setSMTPHostPort(int nSMTPHostPort) {
+    	m_nSMTPHostPort = nSMTPHostPort;
+    }
+    public String getSMTPSenderEmailAddress() {
+        return m_strSMTPSenderEmailAddress;
     }
 
-    public String getUserEmailPasscode() {
-        return m_strUserEmailPasscode;
+    public void setSMTPSenderEmailAddress(String strSMTPSenderEmailAddress) {
+        m_strSMTPSenderEmailAddress = strSMTPSenderEmailAddress;
     }
 
-    public void setUserEmailPasscode(String strUserEmailPasscode) {
-        m_strUserEmailPasscode = strUserEmailPasscode;
+    public String getSMTPSenderEmailPasscode() {
+        return m_strSMTPSenderEmailPasscode;
+    }
+
+    public void setSMTPSenderEmailPasscode(String strSMTPSenderEmailPasscode) {
+        m_strSMTPSenderEmailPasscode = strSMTPSenderEmailPasscode;
     }
 
     public String getUserEmailOAuthToken() {
@@ -886,20 +915,55 @@ public class Util {
                 }
             }
             if (propProgInput
-                    .containsKey(Constants.STR_USER_EMAIL_ADDRESS_KEY_NAME)) {
+                    .containsKey(Constants.STR_SMTP_SENDER_EMAIL_ADDRESS_KEY_NAME)) {
                 strValue = ((String) propProgInput
-                        .get(Constants.STR_USER_EMAIL_ADDRESS_KEY_NAME)).trim();
+                        .get(Constants.STR_SMTP_SENDER_EMAIL_ADDRESS_KEY_NAME)).trim();
                 if (strValue != null && !strValue.isEmpty()) {
-                    m_strUserEmailAddress = strValue;
+                    m_strSMTPSenderEmailAddress = strValue;
                 }
             }
+            //STR_SMTP_HOST_NAME_KEY_NAME
             if (propProgInput
-                    .containsKey(Constants.STR_USER_EMAIL_PASSCODE_KEY_NAME)) {
+                    .containsKey(Constants.STR_DEBUG_SMTP_SESSION_KEY_NAME)) {
                 strValue = ((String) propProgInput
-                        .get(Constants.STR_USER_EMAIL_PASSCODE_KEY_NAME))
+                        .get(Constants.STR_DEBUG_SMTP_SESSION_KEY_NAME))
                         .trim();
                 if (strValue != null && !strValue.isEmpty()) {
-                    m_strUserEmailPasscode = strValue;
+                	m_bDebugSMTPSession = Boolean.parseBoolean(strValue);
+                }
+            }
+
+            if (propProgInput
+                    .containsKey(Constants.STR_SMTP_HOST_NAME_KEY_NAME)) {
+                strValue = ((String) propProgInput
+                        .get(Constants.STR_SMTP_HOST_NAME_KEY_NAME))
+                        .trim();
+                if (strValue != null && !strValue.isEmpty()) {
+                    m_strSMTPHostName = strValue;
+                }
+            }
+            
+            //STR_SMTP_HOST_PORT_KEY_NAME
+            if (propProgInput
+                    .containsKey(Constants.STR_SMTP_HOST_PORT_KEY_NAME)) {
+                strValue = ((String) propProgInput
+                        .get(Constants.STR_SMTP_HOST_PORT_KEY_NAME))
+                        .trim();
+                if (strValue != null && !strValue.isEmpty()) {
+                	try {
+                		m_nSMTPHostPort = Integer.parseInt(strValue);
+                        if (m_nSMTPHostPort < 0 || m_nSMTPHostPort > 65536) {
+                            String strErrorMessage = String
+                                    .format(Constants.STR_ILLEGAL_INPUT_FOR_SMTP_PORT,
+                                            Constants.STR_SMTP_HOST_PORT_KEY_NAME);
+                            throw (new IllegalInputException(strErrorMessage));
+                        }
+                		
+                	} catch(NumberFormatException objNFExcep) {
+                		objNFExcep.printStackTrace();
+                	} catch(IllegalInputException objIIExcep) {
+                		objIIExcep.printStackTrace();
+                	}
                 }
             }
             if (propProgInput

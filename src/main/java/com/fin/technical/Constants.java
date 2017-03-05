@@ -310,9 +310,15 @@ public interface Constants {
 
     public static final String STR_CHECK_MEMORY_STATUS = "%sTotal heap (memory) available in the JVM is %d KB and free memory is %d KB.";
 
-    public static final String STR_USER_EMAIL_ADDRESS_KEY_NAME = "USER_EMAIL_ADDRESS";
+    public static final String STR_SMTP_SENDER_EMAIL_ADDRESS_KEY_NAME = "SMTP_SENDER_EMAIL_ADDRESS";
 
-    public static final String STR_USER_EMAIL_PASSCODE_KEY_NAME = "USER_EMAIL_PASSCODE";
+    public static final String STR_SMTP_HOST_NAME_KEY_NAME = "SMTP_HOST_NAME";
+    
+    public static final String STR_SMTP_HOST_PORT_KEY_NAME = "SMTP_HOST_PORT";
+    
+    public static final String STR_SMTP_SENDER_EMAIL_PASSCODE_KEY_NAME = "SMTP_SENDER_EMAIL_PASSCODE";
+    
+    public static final String STR_DEBUG_SMTP_SESSION_KEY_NAME = "DEBUG_SMTP_SESSION";
 
     public static final String STR_USER_EMAIL_OAUTH_TOKEN_KEY_NAME = "USER_EMAIL_OAUTH_TOKEN";
 
@@ -331,7 +337,9 @@ public interface Constants {
     public static final String STR_ILLEGAL_INPUT_FOR_BOLLINGER_CALC = "Duration for Bollinger Band calculation should be greater than zero. Please check the ema.ini file for possible error. A possible reason could be the value of 'BOLLINGER_DATA_DURATION'.";
 
     public static final String STR_ILLEGAL_INPUT_FOR_BOOLEAN_TYPE = "Illegal %s token value specified in ema.ini file. Please specify either 0 or 1.";
-
+    
+    public static final String STR_ILLEGAL_INPUT_FOR_SMTP_PORT = "Illegal %s token value specified in ema.ini file. Please specify a value between 0 and 65536. Ref: http://www.webopedia.com/quick_ref/portnumbers.asp";
+    
     public static final String STR_MISSING_PROGRAM_INI_FILE = "Program settings file not found. Default data will be used to calculate EMA.";
 
     public static final String STR_COM_FIN_PRESISTENCE_CLASS = "com.fin.persistence.%s";
@@ -360,7 +368,7 @@ public interface Constants {
 
     public static final String STR_ILLEGAL_INPUT_FOR_NUMBER_OF_STOCK_ARCHIVER_THREAD = "Number of thread for stock quote archiving should be greater than zero. Please check the ema.ini file for possible error. A possible reason could be the value of 'NUMBER_OF_STOCK_ARCHIVER_THREAD'.";
     
-    String STR_FILE_SYSTEM_XML_APPLICATION_CONTEXT = "%ssrc%smain%sjava%scom%sfin%stechnical%sBeans.xml";
+    String STR_FILE_SYSTEM_XML_APPLICATION_CONTEXT = "%sconf%sBeans.xml";
     
     String STR_MISSING_DATA_SOURCE_SETTINGS = "Specified data source in ema.ini having name '%s' does not specify valid value.";
     
